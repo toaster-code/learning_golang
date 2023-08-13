@@ -50,3 +50,40 @@ So to use the namespace in main one must see the package name declared in the su
 # namespaces
 
 One thing to note is that only exported types and functions in a will be available externally. That is, types and functions whose names begin with a capital letter (which is why I renamed foo to Foo).
+
+To simplify the usage of types from external packages by assigning them to a shorter alias.
+
+```go
+Copy code
+package main
+
+import (
+	"fmt"
+	"log"
+	t "go_game_jumper/src/tiles" // Import the tiles package and assign an alias "t"
+	"github.com/hajimehoshi/ebiten"
+	"github.com/hajimehoshi/ebiten/ebitenutil"
+)
+
+// ...
+
+// the player
+var player t.Tile = t.Tile{ // Use the alias "t" here
+	image:    nil,
+	x:        50,
+	y:        50,
+	vx:       0,
+	vy:       0,
+	width:    16,
+	height:   16,
+	standing: true,
+	blocking: true,
+}
+```
+By assigning the alias "t" to the tiles package, you can use "t.Tile" to refer to the "Tile" type throughout your "main.go" file.
+Use meaningful names to avoid confusion.
+
+
+
+
+
