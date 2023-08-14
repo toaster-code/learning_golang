@@ -49,7 +49,7 @@ So to use the namespace in main one must see the package name declared in the su
 
 # namespaces
 
-One thing to note is that only exported types and functions in a will be available externally. That is, types and functions whose names begin with a capital letter (which is why I renamed foo to Foo).
+One thing to note is that only exported types and functions in a will be available externally. That is, types and functions whose names begin with a capital letter.
 
 To simplify the usage of types from external packages by assigning them to a shorter alias.
 
