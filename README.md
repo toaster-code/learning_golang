@@ -85,5 +85,41 @@ Use meaningful names to avoid confusion.
 
 
 
+# Interfaces and method binding
+An interface may be created to deal with similar types that embbeds the same methods, for example:
 
+```Go
+type Shape interface {
+    Area() float64
+}
+
+type Circle struct {
+    Radius float64
+}
+
+func (c Circle) Area() float64 {
+    return math.Pi * c.Radius * c.Radius
+}
+
+type Rectangle struct {
+    Width  float64
+    Height float64
+}
+
+func (r Rectangle) Area() float64 {
+    return r.Width * r.Height
+}
+
+func PrintArea(s Shape) {
+    fmt.Println("Area:", s.Area())
+}
+
+func main() {
+    c := Circle{Radius: 5}
+    r := Rectangle{Width: 3, Height: 4}
+
+    PrintArea(c) // Prints the area of the circle
+    PrintArea(r) // Prints the area of the rectangle
+}
+```
 
